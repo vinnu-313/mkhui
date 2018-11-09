@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   clearFields() {
     const vm = this;
     vm.entry = {};
+    vm.imageData = '';
   }
   add() {
     const vm = this;
