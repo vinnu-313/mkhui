@@ -12,8 +12,8 @@ import { AppService } from '../app.service';
 })
 export class LoginComponent implements OnInit {
 
-  private username;
-  private password;
+  username;
+  password;
   constructor(
     private ds: DataService,
     private router: Router,

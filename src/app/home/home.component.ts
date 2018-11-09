@@ -9,8 +9,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private entry = {};
-  private imageData = '';
+  entry: any;
+  imageData = '';
+  photo;
   constructor(
     private ds: DataService,
     private appService: AppService,
@@ -18,6 +19,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    const vm = this;
+    vm.entry = {};
   }
 
   add() {
