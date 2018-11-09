@@ -23,6 +23,10 @@ export class HomeComponent implements OnInit {
     vm.entry = {};
   }
 
+  clearFields() {
+    const vm = this;
+    vm.entry = {};
+  }
   add() {
     const vm = this;
     console.log(vm.entry && vm.entry['photo']);
@@ -32,6 +36,7 @@ export class HomeComponent implements OnInit {
           vm.toastr.error('Failed to save. Try again !!');
         } else {
           vm.toastr.success('Added');
+          vm.clearFields();
         }
       });
     } else {
