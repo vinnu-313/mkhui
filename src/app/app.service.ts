@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 export class AppService {
   private isSpinner: Subject<boolean> = new Subject<boolean>();
   isSpinnerUpdated$ = this.isSpinner.asObservable();
-  baseUrl = 'http://192.168.43.45:3000';
+  baseUrl = 'http://localhost:3000';
   user: any;
   private userUpdatedFlag: Subject<boolean> = new Subject<boolean>();
   isUserUpdated$ = this.userUpdatedFlag.asObservable();

@@ -16,10 +16,25 @@
     <input type="email" [(ngModel)]="entry.email" name="email" class="form-control" id="email" placeholder="Enter Email">
   </div>
   <div class="form-group">
+    <label for="activity">Activity</label>
+    <select [(ngModel)]="entry.activity" name="activity" class="form-control" id="activity">
+      <option value="Water Sports">Water Sports</option>
+      <option value="Sports Climbing">Sports Climbing</option>
+      <option value="Low Rope Activities">Low Rope Activities</option>
+      <option value="Wrestling">Wrestling</option>
+      <option value="Mallakamba">Mallakamba</option>
+      <option value="Boxing">Boxing</option>
+      <option value="Fencing">Fencing</option>
+      <option value="Baseball">Baseball</option>
+      <option value="Hockey">Hockey</option>
+      <option value="Athletics">Athletics</option>
+    </select>
+  </div>
+  <!-- <div class="form-group">
     <label for="photo">Photo</label>
     <input type="file" [(ngModel)]="photo" accept="image/*" name="photo" class="form-control" id="photo" placeholder="Enter photo" (change)="captureImage($event)">
     <img class="border img-thumbnail" *ngIf="imageData" [src]="imageData" alt="Photo" />
-  </div>
+  </div> -->
 
   <div class="form-group">
     <label for="time">Time</label>
