@@ -18,9 +18,12 @@ export class DataService {
   getData(path: string): Observable<any> {
     const vm = this;
     // setTimeout(function () { vm.appService.spinnerData = true; }, 0);
-    const headers = new HttpHeaders();
-    headers.append('x-access-token', this.appService.User.token);
-    return this.http.get(this.appService.Url + '/api' + path, { headers: headers })
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'x-access-token': this.appService.User.token
+      })
+    };
+    return this.http.get(this.appService.Url + '/api' + path, httpOptions);
       // .map((res: Response) => {
       //   return vm.extractData(res, vm);
       // })
@@ -33,7 +36,7 @@ export class DataService {
     const vm = this;
     const headers = new HttpHeaders();
     headers.append('x-access-token', this.appService.User.token);
-    return this.http.get(this.appService.Url + '/api' + path, { headers: headers })
+    return this.http.get(this.appService.Url + '/api' + path, { headers: headers });
       // .map((res: Response) => {
       //   return vm.extractData(res, vm);
       // })

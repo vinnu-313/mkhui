@@ -1,0 +1,50 @@
+<form class="mt-4 pb-5">
+  <div class="form-group">
+    <label for="bib">Bib No.</label>
+    <div class="input-group">
+      <input type="number" [(ngModel)]="bib" name="bib" class="form-control" id="bib" placeholder="Enter bib" (blur)="fetch()" required>
+      <div class="input-group-append">
+        <input type="button" value="Fetch details">
+      </div>
+    </div>
+  </div>
+  <table class="table" *ngIf="partic">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{partic?.name}}</td>
+      </tr>
+      <tr>
+        <td>Zone</td>
+        <td>{{partic?.zone}}</td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>{{partic?.category}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="partic">
+    <div class="form-group">
+      <label for="name">Top</label>
+      <select [(ngModel)]="entry.top" name="top" id="top" class="form-control">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label for="bonus">Total Bonus</label>
+      <input type="number" [(ngModel)]="entry.bonus" min="0" name="bonus" class="form-control" id="bonus" placeholder="Enter bonus">
+    </div>
+    <div class="form-group">
+      <label for="atop">Attempts to top ?</label>
+      <input type="number" [(ngModel)]="entry.atop" min="0" name="atop" class="form-control" id="atop" placeholder="Enter attempts to top">
+    </div>
+    <div class="form-group">
+      <label for="abonus">Attempts to bonus ?</label>
+      <input type="number" [(ngModel)]="entry.abonus" min="0" name="abonus" class="form-control" id="abonus" placeholder="Enter attempts to top">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="dis">Add</button> &nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-secondary" (click)="clear()">Reset</button>
+  </div>
+</form>

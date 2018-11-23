@@ -15,19 +15,48 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { CountdownModule } from 'ngx-countdown';
-
+import { AddParticipantComponent } from './add-participant/add-participant.component';
+import { AddResultComponent } from './add-result/add-result.component';
+import { ResultsComponent } from './results/results.component';
+import { ParticipantsComponent } from './participants/participants.component';
 
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'counter', component: CounterComponent },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      {
+        path: 'add',
+        component: AddParticipantComponent
+      },
+      {
+        path: 'list',
+        component: ParticipantsComponent
+      },
+      {
+        path: 'radd',
+        component: AddResultComponent
+      }
+    ]
+  },
+  {
+    path: 'results', component: ResultsComponent
+  },
+  {
+    path: 'counter', component: CounterComponent
+  },
   {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
   },
-  { path: '**', component: PageNotFoundComponent }
+  {
+    path: '**', component: PageNotFoundComponent
+  }
 ];
 
 
@@ -37,7 +66,11 @@ const appRoutes: Routes = [
     LoginComponent,
     PageNotFoundComponent,
     HomeComponent,
-    CounterComponent
+    CounterComponent,
+    AddParticipantComponent,
+    AddResultComponent,
+    ResultsComponent,
+    ParticipantsComponent
   ],
   imports: [
     RouterModule.forRoot(

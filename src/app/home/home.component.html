@@ -1,45 +1,19 @@
-<form class="mt-4 pb-5">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Name</label>
-    <input type="text" [(ngModel)]="entry.name" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Parent's name</label>
-    <input type="text" [(ngModel)]="entry.pname" name="pname" class="form-control" id="exampleInputPassword1" placeholder="Enter Parent's name">
-  </div>
-  <div class="form-group">
-    <label for="phone">Phone number</label>
-    <input type="number" [(ngModel)]="entry.phone" name="phone" class="form-control" id="phone" placeholder="Enter Phone number">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" [(ngModel)]="entry.email" name="email" class="form-control" id="email" placeholder="Enter Email">
-  </div>
-  <div class="form-group">
-    <label for="activity">Activity</label>
-    <select [(ngModel)]="entry.activity" name="activity" class="form-control" id="activity">
-      <option value="Water Sports">Water Sports</option>
-      <option value="Sports Climbing">Sports Climbing</option>
-      <option value="Low Rope Activities">Low Rope Activities</option>
-      <option value="Wrestling">Wrestling</option>
-      <option value="Mallakamba">Mallakamba</option>
-      <option value="Boxing">Boxing</option>
-      <option value="Fencing">Fencing</option>
-      <option value="Baseball">Baseball</option>
-      <option value="Hockey">Hockey</option>
-      <option value="Athletics">Athletics</option>
-    </select>
-  </div>
-  <!-- <div class="form-group">
-    <label for="photo">Photo</label>
-    <input type="file" [(ngModel)]="photo" accept="image/*" name="photo" class="form-control" id="photo" placeholder="Enter photo" (change)="captureImage($event)">
-    <img class="border img-thumbnail" *ngIf="imageData" [src]="imageData" alt="Photo" />
-  </div> -->
+<div class="btn-group mr-3">
 
-  <div class="form-group">
-    <label for="time">Time</label>
-    <input type="text" [(ngModel)]="entry.Time" name="time" class="form-control" id="time" placeholder="Enter Time">
+  <div ngbDropdown class="btn-group" ngbDropdown role="group">
+    <button class="btn btn-primary" id="participants" ngbDropdownToggle>Participants</button>
+    <div ngbDropdownMenu aria-labelledby="participants">
+      <button class="dropdown-item" routerLink="/home/add">Add</button>
+      <button class="dropdown-item" routerLink="/home/list">View</button>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="add()">Add</button> &nbsp;&nbsp;&nbsp;
-  <button type="reset" class="btn btn-secondary">Reset</button>
-</form>
+  <div ngbDropdown class="btn-group" ngbDropdown role="group">
+    <button class="btn btn-primary" id="results" ngbDropdownToggle>Results</button>
+    <div ngbDropdownMenu aria-labelledby="results">
+      <button class="dropdown-item" routerLink="/home/radd">Add</button>
+      <button class="dropdown-item" routerLink="/results">View</button>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
