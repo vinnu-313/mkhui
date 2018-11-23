@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CountdownComponent } from 'ngx-countdown';
 
 @Component({
@@ -6,30 +6,35 @@ import { CountdownComponent } from 'ngx-countdown';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent implements AfterViewInit {
 
   config;
   @ViewChild(CountdownComponent) counter: CountdownComponent;
   constructor() {
     const vm = this;
     vm.config = {
-      leftTime: 60 * 4
+      leftTime: 10,
+      demand: true
     };
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    const vm = this;
+    // vm.counter.begin();
+  }
+  start() {
     const vm = this;
     vm.counter.begin();
+  }
+  restart() {
+    const vm = this;
+    window.location.reload();
   }
   onStart() {
     console.log('Started at ' + Date.now());
   }
   onFinished() {
     console.log('Finished at ' + Date.now());
-  }
-  restart() {
-    const vm = this;
-    vm.counter.restart();
   }
 }
 
