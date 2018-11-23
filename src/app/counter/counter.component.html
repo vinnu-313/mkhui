@@ -1,0 +1,9 @@
+<!-- Example split danger button -->
+<button type="button" class="btn btn-primary" (click)="restart()">Restart</button>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <countdown [config]="config" (start)="onStart()" (finished)="onFinished()">
+      <h1 class="big">$!m!:$!s!</h1>
+    </countdown>
+  </div>
+</div>

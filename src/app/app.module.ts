@@ -13,12 +13,15 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
+import { CounterComponent } from './counter/counter.component';
+import { CountdownModule } from 'ngx-countdown';
 
 
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'counter', component: CounterComponent },
   {
     path: '',
     redirectTo: '/login',
@@ -33,7 +36,8 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    CounterComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -44,6 +48,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     CommonModule,
+    CountdownModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgbModule

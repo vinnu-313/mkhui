@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     const vm = this;
     // console.log(vm.entry && vm.entry['photo']);
     // if (vm.entry && !!vm.entry['photo']) {
-      vm.ds.postData('/kids/add', vm.entry).subscribe((response) => {
+      vm.ds.postData('/partics/add', vm.entry).subscribe((response) => {
         if (response.error) {
           vm.toastr.error('Failed to save. Try again !!');
         } else {
