@@ -33,16 +33,19 @@
     </select>
     </div>
     <div class="form-group">
-      <label for="bonus">Total Bonus</label>
-      <input type="number" [(ngModel)]="entry.bonus" min="0" name="bonus" class="form-control" id="bonus" placeholder="Enter bonus">
+      <label for="bonus">Zone</label>
+      <select [(ngModel)]="entry.bonus" name="top" id="top" class="form-control">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
     </div>
     <div class="form-group">
       <label for="atop">Attempts to top ?</label>
       <input type="number" [(ngModel)]="entry.atop" min="0" name="atop" class="form-control" id="atop" placeholder="Enter attempts to top">
     </div>
     <div class="form-group">
-      <label for="abonus">Attempts to bonus ?</label>
-      <input type="number" [(ngModel)]="entry.abonus" min="0" name="abonus" class="form-control" id="abonus" placeholder="Enter attempts to top">
+      <label for="abonus">Attempts to zone ?</label>
+      <input type="number" [(ngModel)]="entry.abonus" min="0" name="abonus" class="form-control" id="abonus" placeholder="Enter attempts to zone">
     </div>
     <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="dis">Add</button> &nbsp;&nbsp;&nbsp;
     <button type="button" class="btn btn-secondary" (click)="clear()">Reset</button>
