@@ -20,13 +20,13 @@ export class AppService {
   }
 
   get User(): any {
-    this.user = JSON.parse(sessionStorage.getItem('user'));
+    this.user = JSON.parse(localStorage.getItem('user'));
     return this.user;
   }
 
   set User(value: any) {
     this.user = value;
-    sessionStorage.setItem('user', JSON.stringify(this.user));
+    localStorage.setItem('user', JSON.stringify(this.user));
     this.userUpdatedFlag.next(true);
   }
 

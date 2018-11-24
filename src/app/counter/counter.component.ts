@@ -6,35 +6,59 @@ import { CountdownComponent } from 'ngx-countdown';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent implements AfterViewInit {
-
-  config;
-  @ViewChild(CountdownComponent) counter: CountdownComponent;
+export class CounterComponent {
+  time = 20;
+  min = '00';
+  sec = '00';
+  // config;
+  // @ViewChild(CountdownComponent) counter: CountdownComponent;
   constructor() {
-    const vm = this;
-    vm.config = {
-      leftTime: 4 * 60,
-      demand: true
-    };
+    //   const vm = this;
+    //   vm.config = {
+    //     leftTime: 10
+    //   };
+    this.init();
   }
 
-  ngAfterViewInit() {
-    const vm = this;
-    // vm.counter.begin();
+  init() {
+    setInterval(() => {
+      if (this.time > 0) {
+        if (this.time === 5) {
+          const audio = new Audio('../../assets/airhorn.mp3');
+          audio.play();
+        }
+        this.time -= 1;
+        this.format(this.time);
+      } else {
+        const audio = new Audio('../../assets/alarm.mp3');
+        audio.play();
+        this.time = 20;
+      }
+    }, 1000);
   }
-  start() {
-    const vm = this;
-    vm.counter.begin();
+  format(now) {
+    this.min = (now / 60 | 0).toString().padStart(2, '0');
+    this.sec = (now % 60 | 0).toString().padStart(2, '0');
   }
-  restart() {
-    const vm = this;
-    window.location.reload();
-  }
-  onStart() {
-    console.log('Started at ' + Date.now());
-  }
-  onFinished() {
-    console.log('Finished at ' + Date.now());
-  }
+  // ngAfterViewInit() {
+  //   const vm = this;
+  //   // vm.counter.begin();
+  // }
+  // start() {
+  //   const vm = this;
+  //   vm.counter.begin();
+  // }
+  // restart() {
+  //   const vm = this;
+  //   window.location.reload();
+  // }
+  // onStart() {
+  //   console.log('Started at ' + Date.now());
+  // }
+  // onFinished() {
+  //   const vm = this;
+  //   vm.counter.restart();
+  //   console.log('Finished at ' + Date.now());
+  // }
 }
 
