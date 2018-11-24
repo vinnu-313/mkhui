@@ -7,7 +7,7 @@ import { CountdownComponent } from 'ngx-countdown';
   styleUrls: ['./counter.component.css']
 })
 export class CounterComponent {
-  time = 20;
+  time = 240;
   min = '00';
   sec = '00';
   // config;
@@ -23,7 +23,7 @@ export class CounterComponent {
   init() {
     setInterval(() => {
       if (this.time > 0) {
-        if (this.time === 5) {
+        if (this.time === 60) {
           const audio = new Audio('../../assets/airhorn.mp3');
           audio.play();
         }
@@ -32,7 +32,7 @@ export class CounterComponent {
       } else {
         const audio = new Audio('../../assets/alarm.mp3');
         audio.play();
-        this.time = 20;
+        this.time = 240;
       }
     }, 1000);
   }
