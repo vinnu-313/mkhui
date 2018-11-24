@@ -11,7 +11,7 @@
     <button class="btn btn-primary" id="results" ngbDropdownToggle>Results</button>
     <div ngbDropdownMenu aria-labelledby="results">
       <button class="dropdown-item" routerLink="/home/radd">Add</button>
-      <button class="dropdown-item" routerLink="/results">View</button>
+      <a class="btn dropdown-item" target="_blank" [href]="downloadUrl">Results</a>
     </div>
   </div>
 </div>

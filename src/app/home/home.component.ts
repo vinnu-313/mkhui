@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { AppService } from '../app.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +8,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor() {
+  downloadUrl: string;
+  constructor(private ds: DataService,
+    private app: AppService) {
 
   }
   ngOnInit() {
-
+    const vm = this;
+    vm.downloadUrl = vm.app.baseUrl + '/api/result/download?token=' + vm.app.User.token; 
   }
 }

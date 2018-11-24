@@ -13,7 +13,7 @@ export class CounterComponent implements AfterViewInit {
   constructor() {
     const vm = this;
     vm.config = {
-      leftTime: 10,
+      leftTime: 4 * 60,
       demand: true
     };
   }

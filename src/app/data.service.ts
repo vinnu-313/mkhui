@@ -4,6 +4,7 @@ import { Http, Response, Headers, RequestOptions, ResponseContentType } from '@a
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { catchError, retry, tap } from 'rxjs/operators';
 import 'rxjs/add/observable/of';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from './app.service';
@@ -24,12 +25,18 @@ export class DataService {
       })
     };
     return this.http.get(this.appService.Url + '/api' + path, httpOptions);
-      // .map((res: Response) => {
-      //   return vm.extractData(res, vm);
-      // })
-      // .catch((error: Response) => {
-      //   return vm.handleError(error, vm);
-      // });
+    // .map((res: Response) => {
+    //   return vm.extractData(res, vm);
+    // })
+    // .catch((error: Response) => {
+    //   return vm.handleError(error, vm);
+    // });
+  }
+
+  getExcel(path: string) {
+    return this.http.get(this.appService.Url + '/api' + path + '?token=' + this.appService.User.token, {
+      responseType: 'text'
+    });
   }
 
   getDataBg(path: string): Observable<any> {
@@ -37,26 +44,26 @@ export class DataService {
     const headers = new HttpHeaders();
     headers.append('x-access-token', this.appService.User.token);
     return this.http.get(this.appService.Url + '/api' + path, { headers: headers });
-      // .map((res: Response) => {
-      //   return vm.extractData(res, vm);
-      // })
-      // .catch((error: Response) => {
-      //   return vm.handleError(error, vm);
-      // });
+    // .map((res: Response) => {
+    //   return vm.extractData(res, vm);
+    // })
+    // .catch((error: Response) => {
+    //   return vm.handleError(error, vm);
+    // });
   }
 
   getPdf(path: string): Observable<any> {
     const vm = this;
-    setTimeout(function () { vm.appService.spinnerData = true; }, 0);
-    const headers = new HttpHeaders();
-    headers.append('x-access-token', this.appService.User.token);
-    return this.http.get(this.appService.Url + '/api' + path, { headers: headers })
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'x-access-token': this.appService.User.token
+      })
+    };
+    return this.http.get(this.appService.Url + '/api' + path, httpOptions)
       .map((res: Response) => {
-        setTimeout(function () { vm.appService.spinnerData = false; }, 0);
         return res;
       })
       .catch((error: any) => {
-        setTimeout(function () { vm.appService.spinnerData = false; }, 0);
         return error;
       });
   }
@@ -65,12 +72,12 @@ export class DataService {
     const vm = this;
     setTimeout(function () { vm.appService.spinnerData = true; }, 0);
     return this.http.get(this.appService.Url + path)
-      // .map((res: Response) => {
-      //   return vm.extractData(res, vm);
-      // })
-      // .catch((error: Response) => {
-      //   return vm.handleError(error, vm);
-      // });
+    // .map((res: Response) => {
+    //   return vm.extractData(res, vm);
+    // })
+    // .catch((error: Response) => {
+    //   return vm.handleError(error, vm);
+    // });
   }
 
   postData(path: string, data: any): Observable<any> {
@@ -82,24 +89,24 @@ export class DataService {
       })
     };
     return this.http.post(this.appService.Url + '/api' + path, data, httpOptions);
-      // .map((res: Response) => {
-      //   return vm.extractData(res, vm);
-      // })
-      // .catch((error: Response) => {
-      //   return vm.handleError(error, vm);
-      // });
+    // .map((res: Response) => {
+    //   return vm.extractData(res, vm);
+    // })
+    // .catch((error: Response) => {
+    //   return vm.handleError(error, vm);
+    // });
   }
 
   postDataNoToken(path: string, data: any): Observable<any> {
     const vm = this;
     setTimeout(function () { vm.appService.spinnerData = true; }, 0);
     return this.http.post(this.appService.Url + path, data)
-      // .map((res: Response) => {
-      //   return vm.extractData(res, vm);
-      // })
-      // .catch((error: Response) => {
-      //   return vm.handleError(error, vm);
-      // });
+    // .map((res: Response) => {
+    //   return vm.extractData(res, vm);
+    // })
+    // .catch((error: Response) => {
+    //   return vm.handleError(error, vm);
+    // });
   }
 
   getDataNoApi(path: string): Observable<any> {
@@ -108,12 +115,12 @@ export class DataService {
     const headers = new HttpHeaders();
     headers.append('x-access-token', this.appService.User.token);
     return this.http.get(this.appService.Url + '/api' + path, { headers: headers })
-      // .map((res: Response) => {
-      //   return vm.extractData(res, vm);
-      // })
-      // .catch((error: Response) => {
-      //   return vm.handleError(error, vm);
-      // });
+    // .map((res: Response) => {
+    //   return vm.extractData(res, vm);
+    // })
+    // .catch((error: Response) => {
+    //   return vm.handleError(error, vm);
+    // });
   }
 
   // getExcel(reqData, file) {
