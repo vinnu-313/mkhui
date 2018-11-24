@@ -33,15 +33,15 @@
     </select>
     </div>
     <div class="form-group">
+      <label for="atop">Attempts to top ?</label>
+      <input type="number" [(ngModel)]="entry.atop" min="0" name="atop" class="form-control" id="atop" placeholder="Enter attempts to top">
+    </div>
+    <div class="form-group">
       <label for="bonus">Zone</label>
       <select [(ngModel)]="entry.bonus" name="top" id="top" class="form-control">
         <option value="1">Yes</option>
         <option value="0">No</option>
       </select>
-    </div>
-    <div class="form-group">
-      <label for="atop">Attempts to top ?</label>
-      <input type="number" [(ngModel)]="entry.atop" min="0" name="atop" class="form-control" id="atop" placeholder="Enter attempts to top">
     </div>
     <div class="form-group">
       <label for="abonus">Attempts to zone ?</label>
