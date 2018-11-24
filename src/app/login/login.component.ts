@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       } else {
         console.log(response.data);
         vm.app.User = response.data;
-        vm.router.navigate(['/home']);
+        vm.router.navigate(['/home/radd']);
       }
     });
   }
