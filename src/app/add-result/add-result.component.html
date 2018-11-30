@@ -26,6 +26,22 @@
   </table>
   <div *ngIf="partic">
     <div class="form-group">
+      <label for="round">Round</label>
+      <select [(ngModel)]="entry.round" name="round" id="round" class="form-control">
+      <option value="Qualification">Qualification</option>
+      <option value="Final">Final</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label for="boulder">Boulder</label>
+      <select [(ngModel)]="entry.boulder" name="boulder" id="boulder" class="form-control">
+      <option value="one">One</option>
+      <option value="two">Two</option>
+      <option value="three">Three</option>
+      <option value="four">Four</option>
+    </select>
+    </div>
+    <div class="form-group">
       <label for="name">Top</label>
       <select [(ngModel)]="entry.top" name="top" id="top" class="form-control">
       <option value="1">Yes</option>
