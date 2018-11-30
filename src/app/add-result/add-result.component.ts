@@ -38,16 +38,20 @@ export class AddResultComponent implements OnInit {
     }
   }
 
-  save() {
+  save(x) {
     const vm = this;
-    vm.dis = true;
-    vm.partic.entry = vm.entry;
-    if (vm.entry) {
-      vm.ds.postData('/result/add', vm.partic).subscribe((response) => {
-        console.log(response);
-        vm.toastr.success('Result added.');
-        vm.clear();
-      });
+    if (x) {
+      vm.dis = true;
+      vm.partic.entry = vm.entry;
+      if (vm.entry) {
+        vm.ds.postData('/result/add', vm.partic).subscribe((response) => {
+          console.log(response);
+          vm.toastr.success('Result added.');
+          vm.clear();
+        });
+      }
+    } else {
+      vm.toastr.error('Please fill values for all fields.');
     }
   }
 
