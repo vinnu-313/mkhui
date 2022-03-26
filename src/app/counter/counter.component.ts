@@ -26,7 +26,7 @@ export class CounterComponent {
   tick() {
     if (this.time > 0) {
       if (this.time === 60) {
-        const audio = new Audio('../../assets/airhorn.mp3');
+        const audio = new Audio('../../assets/airhorn.MP3');
         audio.play();
       }
       this.time -= 1;
@@ -38,7 +38,7 @@ export class CounterComponent {
       } else {
         this.stop();
       }
-      const audio = new Audio('../../assets/alarm.mp3');
+      const audio = new Audio('../../assets/alarm.MP3');
       audio.play();
     }
   }
