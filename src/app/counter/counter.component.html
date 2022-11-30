@@ -1,8 +1,8 @@
 <h1 class="big">{{min}}:{{sec}}</h1>
 <img src="assets/eye.svg" class="eye" (click)="show=!show" />
-<div *ngIf="show">
-  <button (click)="init()">Start</button>
-  <button (click)="stop()">Stop</button>
-  <input type="number" min="0" [(ngModel)]="ptime">
-  <input type="checkbox" [(ngModel)]="loop" /> Loop
+<div class="container" *ngIf="show">
+  <button class="form-control btn m-2" (click)="init()">Start</button>
+  <button class="form-control btn m-2" (click)="stop()">Stop</button>
+  <input class="form-control m-2" type="number" min="0" [(ngModel)]="ptime">
+  <input class="form-control m-2" type="checkbox" [(ngModel)]="loop" /> Loop
 </div>
