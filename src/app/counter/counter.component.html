@@ -1,8 +1,23 @@
-<h1 class="big">{{min}}:{{sec}}</h1>
+<h1 class="big" [ngClass]="{'delay': isDelay}">{{min}}:{{sec}}</h1>
 <img src="assets/eye.svg" class="eye" (click)="show=!show" />
 <div class="container" *ngIf="show">
-  <button class="form-control btn m-2" (click)="init()">Start</button>
-  <button class="form-control btn m-2" (click)="stop()">Stop</button>
-  <input class="form-control m-2" type="number" min="0" [(ngModel)]="ptime">
-  <input class="form-control m-2" type="checkbox" [(ngModel)]="loop" /> Loop
+  <div class="form-row m-2">
+    <div class="col">
+      <label for="ptime">Time in seconds </label>
+      <input id="ptime" class="form-control" type="number" min="0" [(ngModel)]="ptime" (click)="$event.target.select()">
+    </div>
+    <div class="col">
+      <label for="delay">Delay in seconds </label>
+      <input id="delay" class="form-control" type="number" min="0" [(ngModel)]="pdelay"
+        (click)="$event.target.select()">
+    </div>
+  </div>
+  <div class="form-group form-check m-2">
+    <input type="checkbox" class="form-check-input" [(ngModel)]="loop" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Loop</label>
+  </div>
+  <div class="form-row">
+      <button class="btn btn-primary mx-3" (click)="init()">Start</button>
+      <button class="btn " (click)="stop()">Stop</button>
+  </div>
 </div>
