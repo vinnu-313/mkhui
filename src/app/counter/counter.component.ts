@@ -30,7 +30,7 @@ export class CounterComponent {
 
   tick() {
     if (this.time > 0) {
-      if (this.time === 16) {
+      if (this.time === 60) {
         const audio = new Audio('assets/airhorn.mp3');
         audio.play();
       }
