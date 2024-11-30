@@ -34,10 +34,11 @@ export class CounterComponent {
         const audio = new Audio('assets/airhorn.mp3');
         audio.play();
       }
-      if (this.time === 1) {
+      if (this.time === 3) {
         const audio = new Audio('assets/alarm.mp3');
         audio.play();
       }
+      
       this.time -= 1;
       this.format(this.time);
     } else {
@@ -47,6 +48,10 @@ export class CounterComponent {
           this.delay -= 1;
           this.format(this.delay);
         } else {
+          if (this.delay === 0) {
+            const audio = new Audio('assets/alarm.mp3');
+            audio.play();
+          }
           this.time = this.ptime;
           this.delay = this.pdelay;
           this.isDelay = false;
