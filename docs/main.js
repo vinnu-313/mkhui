@@ -609,7 +609,7 @@ var CounterComponent = /** @class */ (function () {
                 var audio = new Audio('assets/airhorn.mp3');
                 audio.play();
             }
-            if (this.time === 1) {
+            if (this.time === 4) {
                 var audio = new Audio('assets/alarm.mp3');
                 audio.play();
             }
@@ -624,6 +624,10 @@ var CounterComponent = /** @class */ (function () {
                     this.format(this.delay);
                 }
                 else {
+                    if (this.delay === 0) {
+                        var audio = new Audio('assets/beep.mp3');
+                        audio.play();
+                    }
                     this.time = this.ptime;
                     this.delay = this.pdelay;
                     this.isDelay = false;

@@ -34,7 +34,7 @@ export class CounterComponent {
         const audio = new Audio('assets/airhorn.mp3');
         audio.play();
       }
-      if (this.time === 3) {
+      if (this.time === 4) {
         const audio = new Audio('assets/alarm.mp3');
         audio.play();
       }
@@ -49,7 +49,7 @@ export class CounterComponent {
           this.format(this.delay);
         } else {
           if (this.delay === 0) {
-            const audio = new Audio('assets/alarm.mp3');
+            const audio = new Audio('assets/beep.mp3');
             audio.play();
           }
           this.time = this.ptime;
